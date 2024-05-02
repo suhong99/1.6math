@@ -33,9 +33,9 @@ export default function Home() {
               -&gt;
             </span>
           </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
+          <address className="m-0 max-w-[30ch] text-sm opacity-50">
             울산 남구 문수로335번길 6 <br /> 길상 빌딩 5층
-          </p>
+          </address>
 
           <p className="m-0 max-w-[30ch] text-xs opacity-50">
             클릭 시 네이버지도로 이동
