@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     images:
       'https://github.com/suhong99/1.6math/assets/120103909/205269b2-3969-4afd-8477-686a46aa76c8',
     locale: 'ko_KR',
-    url: 'http://localhost:3000/',
+    url: 'https://1-6math.vercel.app/',
   },
 };
 
