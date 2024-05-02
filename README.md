@@ -1,24 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# 울산 남구 옥동 1.6수학학원
 
-First, run the development server:
+## 프로젝트 개요   
+상표를 한글로 등록해야 해서 학부모님들이 학원 검색에 어려움을 겪으십니다.
+이를 간단한 학원 주소 및 연락처가 담긴 웹페이지 제작을 통해서 SEO에 노출시키는 프로젝트
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 
