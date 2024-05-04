@@ -28,13 +28,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <Head>
-        <meta
-          name="google-site-verification"
-          content="XOKg6rCC2H3U0FpBypzudC4OMAD88fm5vDTuEW8kqfs"
-        />
-      </Head>
-
       <body className={inter.className}>{children}</body>
     </html>
   );
