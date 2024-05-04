@@ -20,6 +20,7 @@ export default function Home() {
           priority
         />
       </div>
+
       <CardList />
     </main>
   );
