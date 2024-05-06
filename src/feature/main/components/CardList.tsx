@@ -13,7 +13,7 @@ export default function CardList() {
         <address className="m-0 max-w-[30ch] text-sm opacity-50">
           울산 남구 문수로335번길 6 <br /> 길상 빌딩 5층
         </address>
-        <CardDescription text="클릭 시 네이버지도로 이동" size="sm" />
+        <CardDescription text="클릭 시 네이버지도로 이동" size="xs" />
       </CardLinkWrapper>
 
       <CardClipWrapper text={'052-261-5515'}>
