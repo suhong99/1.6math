@@ -7,10 +7,10 @@ import {
 
 export default function CardList() {
   return (
-    <div className="mb-16 grid text-center lg:text-left lg:w-full lg:mb-0  lg:max-w-5xl md:grid-cols-2 lg:grid-cols-4  m-3">
+    <div className="mb-16 grid text-center gap-5 items-center lg:items-start justify-items-center lg:text-left w-full lg:mb-0  lg:max-w-5xl md:grid-cols-2 lg:grid-cols-4">
       <CardLinkWrapper link="https://map.naver.com/p/entry/place/1426094200?c=15.00,0,0,0,dh">
         <CardTitle title="오시는 길" />
-        <address className="m-0 max-w-[30ch] text-sm opacity-50">
+        <address className="m-0 text-sm opacity-50">
           울산 남구 문수로335번길 6 <br /> 길상 빌딩 5층
         </address>
         <CardDescription text="클릭 시 네이버지도로 이동" size="xs" />
