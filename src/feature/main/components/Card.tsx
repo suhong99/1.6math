@@ -10,7 +10,7 @@ function CardLinkWrapper({ link, children }: CardLink) {
   return (
     <a
       href={link}
-      className="group rounded-lg border border-transparent px-5 py-4 h-full transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 "
+      className="group rounded-lg border h-full px-5 py-4 transition-color border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 w-full max-w-96"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -30,19 +30,18 @@ function CardClipWrapper({ text, children }: CardClip) {
     alert(text + '복사되었습니다');
   };
   return (
-    <div
+    <button
       onClick={copylink}
-      role="button"
-      className="cursor-default group rounded-lg border border-transparent h-full px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 w-full"
+      className="flex flex-col items-start lg:text-left group rounded-lg border h-full px-5 py-4 transition-color border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 w-full max-w-96"
     >
       {children}
-    </div>
+    </button>
   );
 }
 
 function CardTitle({ title }: { title: string }) {
   return (
-    <div className="mb-3 text-2xl font-semibold">
+    <div className="mb-3 text-2xl font-semibold w-full">
       {title}
       <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
         -&gt;
@@ -58,12 +57,9 @@ function CardDescription({
   text: string;
   size?: 'xs' | 'sm' | 'lg';
 }) {
-  if (size === 'xs') {
-    console.log(`text-${size}`);
-  }
   return (
     <p
-      className={`w-full m-0 max-w-[30ch] ${'text-' + size} ${
+      className={`w-full m-0  ${'text-' + size} ${
         size === 'lg' ? 'opacity-' + 85 : 'opacity-' + 50
       }`}
     >
