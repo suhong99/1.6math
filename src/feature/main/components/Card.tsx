@@ -10,7 +10,7 @@ function CardLinkWrapper({ link, children }: CardLink) {
   return (
     <a
       href={link}
-      className="group rounded-lg border h-full px-5 py-4 transition-color border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 w-full max-w-96"
+      className="rounded-lg border h-full px-5 py-4 transition-color border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 w-full max-w-96"
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -57,14 +57,12 @@ function CardDescription({
   text: string;
   size?: 'xs' | 'sm' | 'lg';
 }) {
-  return (
-    <p
-      className={`w-full m-0  ${'text-' + size} ${
-        size === 'lg' ? 'opacity-' + 85 : 'opacity-' + 50
-      }`}
-    >
-      {text}
-    </p>
-  );
+  const sizeVariants = {
+    xs: 'text-xs opacity-50',
+    sm: 'text-sm opacity-50',
+    lg: 'text-lg opacity-85',
+  };
+
+  return <p className={`w-full m-0 ${sizeVariants[size]}`}>{text}</p>;
 }
 export { CardClipWrapper, CardLinkWrapper, CardTitle, CardDescription };
