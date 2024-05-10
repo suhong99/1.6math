@@ -7,7 +7,7 @@ import {
 
 export default function CardList() {
   return (
-    <div className="mb-16 grid text-center gap-5 items-center lg:items-start justify-items-center lg:text-left w-full lg:mb-0  lg:max-w-5xl md:grid-cols-2 lg:grid-cols-4">
+    <div className="mb-16 grid text-center gap-5 items-center  justify-items-center md:px-10 md:grid-cols-2 lg:items-start lg:text-left w-full lg:mb-0  lg:max-w-5xl lg:grid-cols-4">
       <CardLinkWrapper link="https://map.naver.com/p/entry/place/1426094200?c=15.00,0,0,0,dh">
         <CardTitle title="오시는 길" />
         <address className="m-0 text-sm opacity-50">
