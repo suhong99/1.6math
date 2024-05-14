@@ -21,10 +21,14 @@
 ![image](https://github.com/suhong99/1.6math/assets/120103909/91781004-5479-4ced-b696-f6c3a3368099)
 
 ## 작업 내용
+
+### 검색엔진 노출
 address 태그, metaData등의 시멘틱 태그 활용과 sitemap.xml, robots.txt, 사이트 소유 설정을 통해 검색엔진 노출   
+
+### 웹 접근성 향상
 nvda 스크린리더를 통해 웹사이트 확인후 웹 접근성 개선   
 
-### 1. aria-hidden 옵션을 통해서 시각적인 기호 screen reader에 읽히지 않도록 설정
+#### 1. aria-hidden 옵션을 통해서 시각적인 기호 screen reader에 읽히지 않도록 설정
 ```jsx
    <span
         className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"
@@ -33,11 +37,17 @@ nvda 스크린리더를 통해 웹사이트 확인후 웹 접근성 개선
         -&gt;
       </span>
 ```
-### 2. sr-only 태그를 활용하여 스크린리더로 읽을 시 버튼에 대한 부여 설명   
+#### 2. sr-only 태그를 활용하여 스크린리더로 읽을 시 버튼에 대한 부여 설명   
 
 ```jsx
       <span className="sr-only">클릭시 번호가 클립보드에 저장됩니다</span>
 ```
+
+### 반응형 UI   
+tailwind css를 활용하여 반응형 UI   
+breakpoint :  768px, 1024px
+![image](https://github.com/suhong99/1.6math/assets/120103909/58144add-83b2-4d6c-b5c2-20d9866e4066)    
+![image](https://github.com/suhong99/1.6math/assets/120103909/f5bcdca7-39db-4092-b2d8-3abccd1b3af1)    
 
 
 
