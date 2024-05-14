@@ -53,7 +53,7 @@ case :  768 ~ 1024이하
 ![image](https://github.com/suhong99/1.6math/assets/120103909/30b6d3a3-5327-45b3-8f7b-71acb2f545ac)
 
 
-case : 768 이하
+case : 768 이하   
 ![image](https://github.com/suhong99/1.6math/assets/120103909/9e0ce33e-c562-4759-a0e3-1f993743e58f)   
 
 
