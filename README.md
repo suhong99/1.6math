@@ -15,7 +15,7 @@
 7. screen reader를 사용하여 웹 접근성 개선하기
 
 ## 사용 기술 스텍
-next.js(app-router), tailwindcss
+next.js(app-router), tailwindcss, vercel
   
 ## 페이지 소개
 현재는 간단한 주소와 연락처가 남긴 페이지만 이루어져 있다.(구체적인 홍보 방안 및 타 프로젝트 , 정보처리기사 종료 시 디벨롭)   
