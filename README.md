@@ -21,6 +21,7 @@
 ![image](https://github.com/suhong99/1.6math/assets/120103909/91781004-5479-4ced-b696-f6c3a3368099)
 
 ## 작업 내용
+![image](https://github.com/suhong99/1.6math/assets/120103909/57698e9f-dee2-4d71-ac21-78b5c44e001b)   
 
 ### 검색엔진 노출
 address 태그, metaData등의 시멘틱 태그 활용과 sitemap.xml, robots.txt, 사이트 소유 설정을 통해 검색엔진 노출   
