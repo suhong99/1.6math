@@ -12,7 +12,32 @@
 4. 스크린 리더로도 읽을 수 있도록 시맨틱 태그 작성
 5. 반응형 UI ( 학부모님들이 휴대폰으로도 볼 수 있으므로)
 6. 컴퍼넌트를 관심사에 따라 분리 (원티드 강의에서 배운 값, 계산, 액션에 집중하기)
-
+7. screen reader를 사용하여 웹 접근성 개선하기
+  
 ## 페이지 소개
 현재는 간단한 주소와 연락처가 남긴 페이지만 이루어져 있다.(구체적인 홍보 방안 및 타 프로젝트 , 정보처리기사 종료 시 디벨롭)   
 사이드주소 : https://1-6math.vercel.app/
+![image](https://github.com/suhong99/1.6math/assets/120103909/34b6b497-3f25-4d11-bd27-f359e4e408f3)   
+![image](https://github.com/suhong99/1.6math/assets/120103909/91781004-5479-4ced-b696-f6c3a3368099)
+
+## 작업 내용
+address 태그, metaData등의 시멘틱 태그 활용과 sitemap.xml, robots.txt, 사이트 소유 설정을 통해 검색엔진 노출   
+nvda 스크린리더를 통해 웹사이트 확인후 웹 접근성 개선   
+
+### 1. aria-hidden 옵션을 통해서 시각적인 기호 screen reader에 읽히지 않도록 설정
+```jsx
+   <span
+        className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"
+        aria-hidden="true"
+      >
+        -&gt;
+      </span>
+```
+### 2. sr-only 태그를 활용하여 스크린리더로 읽을 시 버튼에 대한 부여 설명   
+
+```jsx
+      <span className="sr-only">클릭시 번호가 클립보드에 저장됩니다</span>
+```
+
+
+
