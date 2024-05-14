@@ -1,14 +1,13 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Head from 'next/head';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: '1.6 수학과학전문학원',
   description:
-    '울산 남구 옥동 1.6 수학과학전문학원입니다. 공식상호는 일점육수학과학전문학원이라 네이버지도에서는 해당 이름으로 검색해야 합니다.',
+    '울산 남구 옥동 1.6 수학과학학원입니다. \n 네이버 지도 이용시에는 일점육수학과학전문학원으로 검색 부탁드립니다.',
   openGraph: {
     title: '1.6 수학과학전문학원',
     description:
