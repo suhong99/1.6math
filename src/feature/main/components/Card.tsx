@@ -27,13 +27,14 @@ type CardClip = {
 function CardClipWrapper({ text, children }: CardClip) {
   const copylink = () => {
     navigator.clipboard.writeText(text);
-    alert(text + '복사되었습니다');
+    alert(text + '가 클립보드에 복사되었습니다');
   };
   return (
     <button
       onClick={copylink}
       className="flex flex-col items-start lg:text-left group rounded-lg border h-full px-5 py-4 transition-color border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30 w-full max-w-96"
     >
+      <span className="sr-only">클릭시 번호가 클립보드에 저장됩니다</span>
       {children}
     </button>
   );
@@ -43,7 +44,10 @@ function CardTitle({ title }: { title: string }) {
   return (
     <div className="mb-3 text-2xl font-semibold w-full">
       {title}
-      <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+      <span
+        className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none"
+        aria-hidden="true"
+      >
         -&gt;
       </span>
     </div>
