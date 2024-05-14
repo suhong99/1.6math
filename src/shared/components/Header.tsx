@@ -17,7 +17,7 @@ export default function Header() {
               "addressRegion": "울산",
               "addressLocality": "남구 옥동",
               "streetAddress": "문수로335번길 6 길상 빌딩 5층"
-            }
+            },
             "contactPoint": {
               "@type": "ContactPoint",
               "telephone": "+82-52-261-5515",
