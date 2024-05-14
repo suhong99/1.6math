@@ -24,7 +24,7 @@
 
 ### 검색엔진 노출
 address 태그, metaData등의 시멘틱 태그 활용과 sitemap.xml, robots.txt, 사이트 소유 설정을 통해 검색엔진 노출   
-
+관련 개발일지 : https://ungumungum.tistory.com/112
 ### 웹 접근성 향상
 nvda 스크린리더를 통해 웹사이트 확인후 웹 접근성 개선   
 
@@ -46,7 +46,14 @@ nvda 스크린리더를 통해 웹사이트 확인후 웹 접근성 개선
 ### 반응형 UI   
 tailwind css를 활용하여 반응형 UI   
 breakpoint :  768px, 1024px
+case : 1024 이상   
 ![image](https://github.com/suhong99/1.6math/assets/120103909/f5bcdca7-39db-4092-b2d8-3abccd1b3af1)    
+
+case :  768 ~ 1024이하      
+![image](https://github.com/suhong99/1.6math/assets/120103909/30b6d3a3-5327-45b3-8f7b-71acb2f545ac)
+
+
+case : 768 이하
 ![image](https://github.com/suhong99/1.6math/assets/120103909/9e0ce33e-c562-4759-a0e3-1f993743e58f)   
 
 
