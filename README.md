@@ -46,8 +46,9 @@ nvda 스크린리더를 통해 웹사이트 확인후 웹 접근성 개선
 ### 반응형 UI   
 tailwind css를 활용하여 반응형 UI   
 breakpoint :  768px, 1024px
-![image](https://github.com/suhong99/1.6math/assets/120103909/58144add-83b2-4d6c-b5c2-20d9866e4066)    
 ![image](https://github.com/suhong99/1.6math/assets/120103909/f5bcdca7-39db-4092-b2d8-3abccd1b3af1)    
+![image](https://github.com/suhong99/1.6math/assets/120103909/9e0ce33e-c562-4759-a0e3-1f993743e58f)   
+
 
 
 
