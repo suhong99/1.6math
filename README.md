@@ -57,7 +57,7 @@ nvda 스크린리더를 통해 웹사이트 확인후 웹 접근성 개선
 ```
 
 ```css
-sr-only {
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
