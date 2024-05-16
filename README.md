@@ -21,7 +21,8 @@ next.js(app-router), tailwindcss, vercel
 
 ## 페이지 소개
 
-현재는 간단한 주소와 연락처가 남긴 페이지만 이루어져 있다.(구체적인 홍보 방안 및 타 프로젝트 , 정보처리기사 종료 시 디벨롭)  
+현재는 간단한 주소와 연락처가 남긴 페이지만 이루어져 있다.   
+(구체적인 홍보 방안 및 타 프로젝트 , 정보처리기사 종료 시 디벨롭)  
 사이드주소 : https://1-6math.vercel.app/
 ![image](https://github.com/suhong99/1.6math/assets/120103909/34b6b497-3f25-4d11-bd27-f359e4e408f3)  
 ![image](https://github.com/suhong99/1.6math/assets/120103909/91781004-5479-4ced-b696-f6c3a3368099)
