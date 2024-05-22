@@ -53,11 +53,11 @@ export default function JsonLd() {
   };
 
   return (
-    <Head>
+    <section>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JsonLd) }}
       />
-    </Head>
+    </section>
   );
 }
