@@ -65,10 +65,10 @@ export default function Header() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
-        <script
+        {/* <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQJsonLd) }}
-        />
+        /> */}
       </section>
     </header>
   );
