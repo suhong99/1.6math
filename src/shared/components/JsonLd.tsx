@@ -1,5 +1,3 @@
-import Head from 'next/head';
-
 export default function JsonLd() {
   const JsonLd = {
     '@context': 'https://schema.org',
