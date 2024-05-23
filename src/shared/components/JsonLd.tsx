@@ -54,6 +54,10 @@ export default function JsonLd() {
     <section>
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(OrgJson) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JsonLd) }}
       />
     </section>
