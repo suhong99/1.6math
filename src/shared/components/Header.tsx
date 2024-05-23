@@ -1,4 +1,5 @@
 import React from 'react';
+import JsonLd from './JsonLd';
 
 export default function Header() {
   return (
