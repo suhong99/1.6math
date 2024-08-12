@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import Header from '@/shared/components/Header';
+import JsonLd from '@/shared/components/JsonLd';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -27,7 +29,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="flex flex-col items-center">
+          <JsonLd />
+          <Header />
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

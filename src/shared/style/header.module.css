@@ -1,0 +1,24 @@
+.navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.active {
+  color: black;
+  font-weight: 700;
+}
+
+.inactive {
+  color: gray;
+}
+
+@media (max-width: 600px) {
+  .active {
+    font-size: small;
+  }
+  .inactive {
+    font-size: small;
+  }
+}

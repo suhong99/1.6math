@@ -1,13 +1,13 @@
 import React from 'react';
-import JsonLd from './JsonLd';
+import NavLinks from './NavLinks';
 
 export default function Header() {
   return (
-    <header className="w-full max-w-5xl items-center justify-between font- lg:flex">
-      <h1 className="static top-0 left-0 flex  w-full items-end justify-center bg-gradient-to-t lg:size-auto lg:bg-none font-extrabold text-3xl m-4">
+    <header className="w-full  sticky top-0 flex  p-2.5 px-6 lg:px-10 bg-white z-[800] border-b border-gray-500 lg:gap-8 items-end justify-between lg:justify-normal">
+      <h1 className="font-extrabold text-xl lg:text-3xl">
         1.6 수학과학 전문학원
       </h1>
-      <JsonLd />
+      <NavLinks />
     </header>
   );
 }
