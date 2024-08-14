@@ -7,5 +7,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       priority: 1,
     },
+    {
+      url: 'https://1-6math.vercel.app/contact',
+      lastModified: new Date(),
+      priority: 1,
+    },
   ];
 }
