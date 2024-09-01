@@ -34,7 +34,7 @@ export default function JsonLd() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: '1.6수학과학학원',
-    description: '옥동에서 수학과학을 전문적으로 가르치고 있습니다.',
+    description: '옥동에서 수학을 전문적으로 가르치고 있습니다.',
     address: {
       '@type': 'PostalAddress',
       postalCode: '44646',
