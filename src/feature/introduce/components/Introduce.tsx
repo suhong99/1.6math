@@ -1,6 +1,11 @@
-import Image from 'next/image';
+import IntroImage from './IntroImage';
 
 export default function Introduce() {
+  const image: { src: string; alt: string }[] = [
+    { src: '/parthenon.png', alt: '파르테논' },
+    { src: '/creditcard.png', alt: '신용카드' },
+  ];
+
   return (
     <div className="flex flex-col lg:flex-row lg:space-x-12 gap-4">
       <div className="lg:flex-[3] lg:pr-8 flex items-center">
@@ -12,26 +17,9 @@ export default function Introduce() {
         </p>
       </div>
       <div className="lg:flex-[1] grid grid-cols-2 gap-4 lg:grid-cols-1 lg:gap-8">
-        <div className="relative max-w-[400px] w-full mx-auto">
-          <div className="relative pb-[62.5%]">
-            <Image
-              src="/parthenon.png"
-              alt="파르테론"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-        </div>
-        <div className="relative max-w-[400px] w-full mx-auto">
-          <div className="relative pb-[62.5%]">
-            <Image
-              src="/creditcard.png"
-              alt="신용카드"
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-        </div>
+        {image.map(({ src, alt }) => (
+          <IntroImage key={alt} src={src} alt={alt} />
+        ))}
       </div>
     </div>
   );
