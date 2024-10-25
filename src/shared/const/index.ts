@@ -20,4 +20,4 @@ export const GRADE_OPTION: { value: string; text: string }[] = [
   { value: '고3', text: '고등학교 3학년' },
 ];
 
-export const SURVEY_TYPE: string[] = ['건의 사항', '불편 사항', '질문'];
+export const SURVEY_TYPE: string[] = ['건의 사항', '불편 사항', '기타 의견'];
