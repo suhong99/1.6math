@@ -1,3 +1,10 @@
+import FeedbackList from '@/feature/feedback/components/FeedbackList';
+
 export default function FeeadBackPage() {
-  return <main>피드백 수용 페이지</main>;
+  return (
+    <main>
+      학부모 건의 내역
+      <FeedbackList />
+    </main>
+  );
 }
