@@ -14,13 +14,15 @@ export const writeSuggest = async ({
   content: string;
 }) => {
   try {
-    const userRef = doc(store, COLLECTIONS.SUGGEST, title);
-    await setDoc(userRef, {
+    const suggestRef = doc(store, COLLECTIONS.SUGGEST, title);
+    await setDoc(suggestRef, {
       grade,
       category,
       title,
       content,
       date: new Date(),
+      reply: null,
+      lastChecked: null,
     });
 
     return { message: '문의에 성공했습니다.' };
