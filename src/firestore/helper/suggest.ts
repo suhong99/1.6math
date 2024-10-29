@@ -1,4 +1,5 @@
 import {
+  addDoc,
   collection,
   doc,
   getDocs,
@@ -30,8 +31,8 @@ export const writeSuggest = async ({
   content,
 }: Suggestion) => {
   try {
-    const suggestRef = doc(store, COLLECTIONS.SUGGEST, title);
-    await setDoc(suggestRef, {
+    const suggestRef = collection(store, COLLECTIONS.SUGGEST);
+    await addDoc(suggestRef, {
       grade,
       category,
       title,
