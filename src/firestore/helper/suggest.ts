@@ -1,8 +1,9 @@
 import {
+  addDoc,
   collection,
   doc,
+  getDoc,
   getDocs,
-  setDoc,
   Timestamp,
 } from 'firebase/firestore';
 import { COLLECTIONS } from '../const/collection';
@@ -30,8 +31,8 @@ export const writeSuggest = async ({
   content,
 }: Suggestion) => {
   try {
-    const suggestRef = doc(store, COLLECTIONS.SUGGEST, title);
-    await setDoc(suggestRef, {
+    const suggestRef = collection(store, COLLECTIONS.SUGGEST);
+    await addDoc(suggestRef, {
       grade,
       category,
       title,
@@ -58,4 +59,26 @@ export const readSuggest = async () => {
   }));
 
   return feedbackList;
+};
+
+export const readSuggestDetail = async (
+  id: string
+): Promise<(FeedBack & { id: string }) | null> => {
+  try {
+    const docRef = doc(store, COLLECTIONS.SUGGEST, id); // 해당 id의 문서 참조
+    const docSnapshot = await getDoc(docRef);
+
+    if (docSnapshot.exists()) {
+      return {
+        id: docSnapshot.id,
+        ...(docSnapshot.data() as FeedBack),
+      };
+    } else {
+      console.error('No document found with the provided ID.');
+      return null;
+    }
+  } catch (error) {
+    console.error('Error fetching document:', error);
+    throw error;
+  }
 };

@@ -3,17 +3,19 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { FeedBack, readSuggest } from '@/firestore/helper/suggest';
+import { useRouter } from 'next/navigation';
 
 const FeedbackList = () => {
   const [feedbacks, setFeedbacks] = useState<(FeedBack & { id: string })[]>([]);
-  const [loading, setLoading] = useState<boolean>(true); // 로딩 상태 추가
+  const [loading, setLoading] = useState<boolean>(true);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchFeedbacks = async () => {
-      setLoading(true); // 데이터 로딩 시작
+      setLoading(true);
       const feedbackList = await readSuggest();
       setFeedbacks(feedbackList);
-      setLoading(false); // 데이터 로딩 완료
+      setLoading(false);
     };
 
     fetchFeedbacks();
@@ -21,7 +23,7 @@ const FeedbackList = () => {
 
   return (
     <div>
-      {loading ? ( // 로딩 중일 때 메시지 표시
+      {loading ? (
         <p>로딩 중...</p>
       ) : feedbacks.length > 0 ? (
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
@@ -35,7 +37,7 @@ const FeedbackList = () => {
           </thead>
           <tbody>
             {feedbacks.map(({ id, grade, category, title, date }) => (
-              <tr key={id}>
+              <tr key={id} onClick={() => router.push(`/feedback/${id}`)}>
                 <td>{title}</td>
                 <td>{grade}</td>
                 <td>{category}</td>
