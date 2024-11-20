@@ -1,3 +1,5 @@
+import { FeedBack } from '@/firestore/helper/suggest';
+
 export const formatRowData = (feedback: FeedBack) => [
   feedback.category,
   feedback.grade,
