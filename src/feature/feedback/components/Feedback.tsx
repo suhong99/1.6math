@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { FeedBack, readSuggest } from '@/firestore/helper/suggest';
 import Loading from '@/shared/components/Loading';
-import FeedbackTable from './FeedbackTable';
+import { FeedbackTableMobile, FeedbackTable } from './FeedbackTable';
 
 const Feedback = () => {
   const [feedbacks, setFeedbacks] = useState<(FeedBack & { id: string })[]>([]);
@@ -25,7 +25,10 @@ const Feedback = () => {
       {loading ? (
         <Loading />
       ) : feedbacks.length > 0 ? (
-        <FeedbackTable feedbacks={feedbacks} />
+        <>
+          <FeedbackTable feedbacks={feedbacks} />
+          <FeedbackTableMobile feedbacks={feedbacks} />
+        </>
       ) : (
         <p className="text-center text-gray-500">등록된 피드백이 없습니다.</p>
       )}

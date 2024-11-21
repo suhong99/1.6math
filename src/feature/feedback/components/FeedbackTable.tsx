@@ -2,23 +2,23 @@ import React from 'react';
 import { FeedbackCategory } from '../const/data';
 import { useRouter } from 'next/navigation';
 import { FeedBack } from '@/firestore/helper/suggest';
-import { formatRowData } from '../helper/table';
+import { formatTableData } from '../helper/table';
 
 interface FeedbackTableProps {
   feedbacks: (FeedBack & { id: string })[];
 }
 
-const FeedbackTable: React.FC<FeedbackTableProps> = ({ feedbacks }) => {
+export const FeedbackTable: React.FC<FeedbackTableProps> = ({ feedbacks }) => {
   const router = useRouter();
-
   return (
-    <table className="w-full border-collapse border border-gray-300">
+    <table className="w-full max-w-[1280px] border-collapse border border-gray-300 hidden sm:table">
       <thead className="bg-gray-100">
         <tr>
-          {FeedbackCategory.map((header) => (
+          {FeedbackCategory.map((header, index) => (
             <th
               key={header}
-              className="border border-gray-300 px-4 py-2 text-center"
+              colSpan={index === 2 ? 2 : 1}
+              className={`border border-gray-300 px-4 py-2 text-center text-sm lg:text-lg`}
             >
               {header}
             </th>
@@ -32,11 +32,12 @@ const FeedbackTable: React.FC<FeedbackTableProps> = ({ feedbacks }) => {
             onClick={() => router.push(`/feedback/${feedback.id}`)}
             className="cursor-pointer hover:bg-gray-100 transition"
           >
-            {formatRowData(feedback).map((data, index) => (
+            {formatTableData(feedback).map((data, index) => (
               <td
                 key={index}
+                colSpan={index === 2 ? 2 : 1}
                 className={`border border-gray-300 px-4 py-2 ${
-                  index === 2 ? 'truncate max-w-[150px]' : ''
+                  index === 2 ? 'truncate max-w-none' : ''
                 }`}
                 title={index === 2 ? feedback.title : undefined}
               >
@@ -50,4 +51,37 @@ const FeedbackTable: React.FC<FeedbackTableProps> = ({ feedbacks }) => {
   );
 };
 
-export default FeedbackTable;
+export const FeedbackTableMobile: React.FC<FeedbackTableProps> = ({
+  feedbacks,
+}) => {
+  const router = useRouter();
+
+  return (
+    <div className="sm:hidden">
+      {feedbacks.map((feedback) => (
+        <div
+          key={feedback.id}
+          onClick={() => router.push(`/feedback/${feedback.id}`)}
+          className="border border-gray-300 rounded-lg p-4 mb-4 hover:bg-gray-100 transition cursor-pointer"
+        >
+          {formatTableData(feedback).map((data, index) => (
+            <div
+              key={index}
+              className="flex justify-between mb-2 text-sm lg:text-base"
+            >
+              <span className="font-semibold text-gray-600">
+                {FeedbackCategory[index]}:
+              </span>
+              <span
+                className={`${index === 2 ? 'truncate max-w-[150px]' : ''}`}
+                title={index === 2 ? feedback.title : undefined}
+              >
+                {data}
+              </span>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
