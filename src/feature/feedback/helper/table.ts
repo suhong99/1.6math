@@ -1,14 +1,24 @@
 import { FeedBack } from '@/firestore/helper/suggest';
+import { Timestamp } from 'firebase/firestore';
 
-export const formatRowData = (feedback: FeedBack) => [
+const timestampToDate = (timestamp: Timestamp) => {
+  return timestamp
+    .toDate()
+    .toLocaleDateString('ko-KR', {
+      year: '2-digit',
+      month: '2-digit',
+      day: '2-digit',
+    })
+    .replace(/\//g, '.');
+};
+
+export const formatTableData = (feedback: FeedBack) => [
   feedback.category,
   feedback.grade,
   feedback.title.length > 10
     ? `${feedback.title.slice(0, 10)}...`
     : feedback.title,
-  feedback.date.toDate().toLocaleDateString('ko-KR'),
-  feedback.reply || '응답 없음',
-  feedback.lastChecked
-    ? feedback.lastChecked.toDate().toLocaleDateString('ko-KR')
-    : '확인되지 않음',
+  timestampToDate(feedback.date),
+  feedback.reply || '미응답',
+  feedback.lastChecked ? timestampToDate(feedback.lastChecked) : '미확인',
 ];

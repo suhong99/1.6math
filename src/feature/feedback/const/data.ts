@@ -4,5 +4,5 @@ export const FeedbackCategory = [
   '제목',
   '문의일',
   '응답상태',
-  '최종응답일',
+  '처리일',
 ];
