@@ -11,14 +11,14 @@ interface FeedbackTableProps {
 export const FeedbackTable: React.FC<FeedbackTableProps> = ({ feedbacks }) => {
   const router = useRouter();
   return (
-    <table className="w-full max-w-[1280px] border-collapse border border-gray-300 hidden sm:table">
+    <table className="w-full max-w-[1280px] border-collapse border border-gray-300 hidden sm:table table-fixed">
       <thead className="bg-gray-100">
         <tr>
           {FeedbackCategory.map((header, index) => (
             <th
               key={header}
               colSpan={index === 2 ? 2 : 1}
-              className={`border border-gray-300 px-4 py-2 text-center text-sm lg:text-lg`}
+              className="border border-gray-300 px-4 py-2 text-center text-sm lg:text-lg"
             >
               {header}
             </th>
@@ -36,9 +36,7 @@ export const FeedbackTable: React.FC<FeedbackTableProps> = ({ feedbacks }) => {
               <td
                 key={index}
                 colSpan={index === 2 ? 2 : 1}
-                className={`border border-gray-300 px-4 py-2 ${
-                  index === 2 ? 'truncate max-w-none' : ''
-                }`}
+                className="border border-gray-300 text-center text-sm"
                 title={index === 2 ? feedback.title : undefined}
               >
                 {data}
