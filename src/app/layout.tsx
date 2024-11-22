@@ -32,8 +32,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex flex-col items-center relative">
           <JsonLd />
-          <FloatingBtn />
-          <Header />
           {children}
         </div>
       </body>
