@@ -7,7 +7,7 @@ const SignOut = () => {
       action={async () => {
         'use server';
 
-        await signOut();
+        await signOut({ redirectTo: '/admin' });
       }}
     >
       <button

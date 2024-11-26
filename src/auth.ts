@@ -17,14 +17,10 @@ export const authConfig = {
 
       if (isProtected) {
         if (isLogIn && auth?.user?.email) {
-          //TODO: 권한관리
-          // const isRegistered = await checkUser({ email: auth.user.email });
-          // if (isRegistered) {
-          //   return true;
-          // }
+          return true;
         }
 
-        return Response.redirect(new URL('/admin', nextUrl)); // 로그인하지 않은 사용자
+        return Response.redirect(new URL('/admin', nextUrl));
       }
 
       return true;
