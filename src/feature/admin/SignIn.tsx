@@ -8,7 +8,7 @@ const SignIn = () => {
       action={async () => {
         'use server';
 
-        await signIn('google');
+        await signIn('google', { redirectTo: '/feedback' });
       }}
     >
       <button type="submit">
