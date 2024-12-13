@@ -4,10 +4,14 @@ import {
   doc,
   getDoc,
   getDocs,
+  limit,
+  query,
   Timestamp,
+  where,
 } from 'firebase/firestore';
 import { COLLECTIONS } from '../const/collection';
 import { store } from '../firestore';
+import { ReplyState } from '@/feature/feedback/const/type';
 
 export interface FeedBack {
   grade: string;
@@ -15,7 +19,7 @@ export interface FeedBack {
   title: string;
   content: string;
   date: Timestamp;
-  reply: string | null;
+  reply: ReplyState;
   lastChecked: Timestamp | null;
 }
 
@@ -38,7 +42,7 @@ export const writeSuggest = async ({
       title,
       content,
       date: new Date(),
-      reply: null,
+      reply: '미응답',
       lastChecked: null,
     });
 
@@ -49,10 +53,24 @@ export const writeSuggest = async ({
   }
 };
 
-export const readSuggest = async () => {
-  const feedbackSnapshot = await getDocs(
-    collection(store, COLLECTIONS.SUGGEST)
-  );
+export const readSuggest = async (
+  filter: ReplyState | 'all',
+  itemsPerPage = 10
+) => {
+  // 필터에 따른 쿼리 설정
+  const feedbackQuery =
+    filter !== 'all'
+      ? query(
+          collection(store, COLLECTIONS.SUGGEST),
+          where('reply', '==', filter)
+        )
+      : query(collection(store, COLLECTIONS.SUGGEST));
+
+  // 페이지네이션 처리: 페이지 번호에 따라 startAt으로 스킵
+  const paginatedQuery = query(feedbackQuery, limit(itemsPerPage));
+
+  const feedbackSnapshot = await getDocs(paginatedQuery);
+
   const feedbackList = feedbackSnapshot.docs.map((doc) => ({
     id: doc.id,
     ...(doc.data() as FeedBack),
