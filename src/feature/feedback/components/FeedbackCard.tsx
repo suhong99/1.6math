@@ -18,7 +18,7 @@ const FeedbackCard: React.FC<SuggestionCardProps> = ({
   reply,
 }) => {
   return (
-    <div className="mt-4 border p-4 mb-4 bg-white shadow-md min-w-[300px]">
+    <div className="mt-4 border p-4 mb-4 bg-white shadow-md ">
       <h2 className="text-xl font-semibold text-gray-800 mb-2">
         제목 : {title}
       </h2>
