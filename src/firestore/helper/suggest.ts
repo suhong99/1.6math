@@ -7,6 +7,7 @@ import {
   limit,
   query,
   Timestamp,
+  updateDoc,
   where,
 } from 'firebase/firestore';
 import { COLLECTIONS } from '../const/collection';
@@ -97,6 +98,41 @@ export const readSuggestDetail = async (
     }
   } catch (error) {
     console.error('Error fetching document:', error);
+    throw error;
+  }
+};
+
+export const replySuggest = async (
+  id: string
+): Promise<(FeedBack & { id: string }) | null> => {
+  try {
+    const docRef = doc(store, COLLECTIONS.SUGGEST, id);
+    const docSnapshot = await getDoc(docRef);
+
+    if (docSnapshot.exists()) {
+      return {
+        id: docSnapshot.id,
+        ...(docSnapshot.data() as FeedBack),
+      };
+    } else {
+      console.error('No document found with the provided ID.');
+      return null;
+    }
+  } catch (error) {
+    console.error('Error fetching document:', error);
+    throw error;
+  }
+};
+
+export const updateReplyState = async (
+  id: string,
+  newReplyState: ReplyState
+): Promise<void> => {
+  try {
+    const docRef = doc(store, COLLECTIONS.SUGGEST, id);
+    await updateDoc(docRef, { reply: newReplyState });
+  } catch (error) {
+    console.error('Error updating reply state:', error);
     throw error;
   }
 };
