@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Header from '@/shared/components/Header';
 import JsonLd from '@/shared/components/JsonLd';
-import FloatingBtn from '@/shared/components/FloatingBtn';
+import GoogleAnalytics from '@/shared/components/GoogleAnalytics';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,8 +31,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <div className="flex flex-col items-center relative">
           <JsonLd />
+          {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
+            <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+          )}             
           {children}
-        </div>
+        </div>  
       </body>
     </html>
   );
