@@ -1,3 +1,6 @@
+export const NAVER_MAP_URL =
+  'https://map.naver.com/p/entry/place/2026739720?c=17.25,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202604111922&locale=ko&svcName=map_pcv5';
+
 export const NAVIGATION_LIST = [
   { label: '학원 소개', url: '/' },
   { label: '오시는 길', url: '/contact' },
