@@ -35,7 +35,7 @@ export default function KakaoMap() {
 
           const infowindow = new window.kakao.maps.InfoWindow({
             content:
-              '<div style="padding:5px;font-size:12px;">1.6수학과학학원</div>',
+              '<div style="padding:5px;font-size:12px;">1.6수학과학전문학원</div>',
           });
 
           infowindow.open(map, marker);

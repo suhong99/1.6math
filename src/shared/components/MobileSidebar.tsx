@@ -63,7 +63,7 @@ const MobileSidebar = () => {
             </div>
 
             {/* 하단 여백 */}
-            <div className="p-6 text-gray-500 text-sm">© 1.6 수학 전문학원</div>
+            <div className="p-6 text-gray-500 text-sm">© 1.6 수학과학전문학원</div>
           </div>
         </>
       )}

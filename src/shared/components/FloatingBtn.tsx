@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { useRouter } from 'next/navigation'; // useRouter import
-import { PHONE_DATA } from '../const';
+import { PHONE_DATA, NAVER_MAP_URL } from '../const';
 
 const FloatingBtn = () => {
   const router = useRouter(); // useRouter 호출
@@ -24,11 +24,7 @@ const FloatingBtn = () => {
       alt: '길찾기',
       text: '길 찾기',
       func: () => {
-        window.open(
-          'https://map.naver.com/p/entry/place/1426094200?c=15.00,0,0,0,dh',
-          '_blank',
-          'noopener,noreferrer'
-        );
+        window.open(NAVER_MAP_URL, '_blank', 'noopener,noreferrer');
       },
     },
     {
