@@ -33,7 +33,7 @@ export default function JsonLd() {
   const OrgJson = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: '1.6수학과학학원',
+    name: '1.6수학과학전문학원',
     description: '옥동에서 수학을 전문적으로 가르치고 있습니다.',
     address: {
       '@type': 'PostalAddress',
@@ -52,7 +52,7 @@ export default function JsonLd() {
   };
 
   return (
-    <section>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(OrgJson) }}
@@ -61,6 +61,6 @@ export default function JsonLd() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(JsonLd) }}
       />
-    </section>
+    </>
   );
 }
