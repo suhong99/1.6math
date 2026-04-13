@@ -6,7 +6,7 @@ export default function CardList() {
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 w-full">
       {PHONE_DATA.map(({ number, title, name }) => {
         return (
-          <CardClipWrapper key={number} text={number}>
+          <CardClipWrapper key={number} text={number} title={title}>
             <CardTitle title={title} />
             <CardDescription text={number} size="lg" />
             <CardDescription text={name} />

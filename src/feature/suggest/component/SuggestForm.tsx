@@ -117,9 +117,11 @@ export default function SuggestForm() {
         </div>
       </div>
 
-      {state.message && (
-        <p className="text-sm text-amber-600 font-medium">{state.message}</p>
-      )}
+      <div aria-live="polite" aria-atomic="true">
+        {state.message && (
+          <p className="text-sm text-amber-600 font-medium">{state.message}</p>
+        )}
+      </div>
 
       <button
         type="submit"
