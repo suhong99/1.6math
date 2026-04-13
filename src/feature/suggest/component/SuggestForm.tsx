@@ -14,26 +14,28 @@ export type State = {
   message?: string | null;
 };
 
+const fieldClass =
+  'w-full mt-1 p-3 border border-slate-200 rounded-xl text-slate-800 bg-white focus:outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 transition-colors';
+
+const labelClass = 'block text-sm font-semibold text-slate-700 mb-0.5';
+
 export default function SuggestForm() {
   const initialState: State = { message: '', errors: {} };
 
   const [state, dispatch] = useFormState(registerForm, initialState);
 
   return (
-    <form action={dispatch} className="space-y-4 w-full mx-auto">
+    <form action={dispatch} className="space-y-5 w-full">
       <div>
-        <label
-          htmlFor="grade"
-          className="block text-sm font-medium text-gray-700"
-        >
-          학년:
+        <label htmlFor="grade" className={labelClass}>
+          학년
         </label>
         <select
           id="grade"
           name="grade"
           defaultValue=""
           aria-describedby="grade-error"
-          className="w-full mt-1 p-2 border border-gray-300 rounded-md"
+          className={fieldClass}
         >
           <option value="" disabled>
             선택하세요
@@ -46,24 +48,21 @@ export default function SuggestForm() {
         </select>
         <div id="grade-error" aria-live="polite" aria-atomic="true">
           {state.errors?.grade && (
-            <p className="mt-2 text-sm text-red-500">{state.errors.grade}</p>
+            <p className="mt-1.5 text-sm text-red-500">{state.errors.grade}</p>
           )}
         </div>
       </div>
 
       <div>
-        <label
-          htmlFor="category"
-          className="block text-sm font-medium text-gray-700"
-        >
-          분류:
+        <label htmlFor="category" className={labelClass}>
+          분류
         </label>
         <select
           id="category"
           name="category"
           defaultValue=""
           aria-describedby="category-error"
-          className="w-full mt-1 p-2 border border-gray-300 rounded-md"
+          className={fieldClass}
         >
           <option value="" disabled>
             선택하세요
@@ -76,17 +75,14 @@ export default function SuggestForm() {
         </select>
         <div id="category-error" aria-live="polite" aria-atomic="true">
           {state.errors?.category && (
-            <p className="mt-2 text-sm text-red-500">{state.errors.category}</p>
+            <p className="mt-1.5 text-sm text-red-500">{state.errors.category}</p>
           )}
         </div>
       </div>
 
       <div>
-        <label
-          htmlFor="title"
-          className="block text-sm font-medium text-gray-700"
-        >
-          제목:
+        <label htmlFor="title" className={labelClass}>
+          제목
         </label>
         <input
           type="text"
@@ -94,40 +90,42 @@ export default function SuggestForm() {
           name="title"
           placeholder="제목을 입력해주세요"
           aria-describedby="title-error"
-          className="w-full mt-1 p-2 border border-gray-300 rounded-md"
+          className={fieldClass}
         />
         <div id="title-error" aria-live="polite" aria-atomic="true">
           {state.errors?.title && (
-            <p className="mt-2 text-sm text-red-500">{state.errors.title}</p>
+            <p className="mt-1.5 text-sm text-red-500">{state.errors.title}</p>
           )}
         </div>
       </div>
 
       <div>
-        <label
-          htmlFor="content"
-          className="block text-sm font-medium text-gray-700"
-        >
-          내용:
+        <label htmlFor="content" className={labelClass}>
+          내용
         </label>
         <textarea
           id="content"
           name="content"
+          placeholder="내용을 자유롭게 작성해주세요"
           aria-describedby="content-error"
-          className="w-full mt-1 p-2 border border-gray-300 rounded-md min-h-64"
+          className={`${fieldClass} min-h-48 resize-none`}
         />
         <div id="content-error" aria-live="polite" aria-atomic="true">
           {state.errors?.content && (
-            <p className="mt-2 text-sm text-red-500">{state.errors.content}</p>
+            <p className="mt-1.5 text-sm text-red-500">{state.errors.content}</p>
           )}
         </div>
       </div>
 
+      {state.message && (
+        <p className="text-sm text-amber-600 font-medium">{state.message}</p>
+      )}
+
       <button
         type="submit"
-        className="w-full p-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600"
+        className="w-full py-3 px-6 bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold rounded-xl transition-colors text-base shadow-md shadow-amber-500/20"
       >
-        제출
+        제출하기
       </button>
     </form>
   );
