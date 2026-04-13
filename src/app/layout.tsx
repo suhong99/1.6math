@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <div className="flex flex-col items-center relative">
+        <div className="flex flex-col items-center relative [overflow-x:clip]">
           <JsonLd />
           {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
             <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />

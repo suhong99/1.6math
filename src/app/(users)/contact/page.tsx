@@ -1,15 +1,17 @@
 import CardList from '@/feature/contact/components/CardList';
 import Address from '@/feature/contact/components/Address';
+import ContentWrapper from '@/feature/introduce/components/ContentWrapper';
 
 export default function Contact() {
   return (
-    <main className="flex min-h-screen flex-col items-center lg:p-14">
-      <section className="m-10" aria-label="학원 위치">
+    <main className="flex flex-col">
+      <ContentWrapper title="오시는 길" subtitle="학원 위치 & 약도">
         <Address />
-      </section>
-      <section aria-label="연락처 정보">
+      </ContentWrapper>
+
+      <ContentWrapper title="연락처" subtitle="상담 & 문의" dark>
         <CardList />
-      </section>
+      </ContentWrapper>
     </main>
   );
 }
