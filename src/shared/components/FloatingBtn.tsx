@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { PHONE_DATA, NAVER_MAP_URL } from '../const';
 
@@ -42,6 +42,22 @@ const CloseIcon = () => (
 export default function FloatingBtn() {
   const [open, setOpen] = useState(false);
   const router = useRouter();
+  const firstActionRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (open) {
+      const timer = setTimeout(() => firstActionRef.current?.focus(), 180);
+      return () => clearTimeout(timer);
+    }
+  }, [open]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && open) setOpen(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [open]);
 
   const actions = [
     {
@@ -91,7 +107,9 @@ export default function FloatingBtn() {
             </span>
             {/* 아이콘 버튼 */}
             <button
+              ref={index === 0 ? firstActionRef : undefined}
               onClick={action.onClick}
+              tabIndex={open ? 0 : -1}
               className="w-11 h-11 rounded-full bg-slate-800 border border-slate-700 text-amber-400 shadow-lg hover:bg-slate-700 hover:border-amber-500/50 transition-colors flex items-center justify-center"
               aria-label={action.label}
             >

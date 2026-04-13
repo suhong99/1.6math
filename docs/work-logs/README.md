@@ -57,3 +57,4 @@ YYYY-MM-DD-작업명.md
 | 날짜 | 파일 | 설명 | 상태 |
 | ---- | ---- | ---- | ---- |
 | 2026-04-13 | [히어로오버레이및모바일네비개선](./2026-04-13-히어로오버레이및모바일네비개선.md) | 히어로 오버레이 강화, 모바일 사이드바 UX 개선 및 오버레이 버그 수정(createPortal) | 완료 |
+| 2026-04-14 | [웹접근성개선](./2026-04-14-웹접근성개선.md) | FloatingBtn Escape/포커스, CardClipWrapper aria-label, SuggestForm aria-live, Address sr-only | 완료 |

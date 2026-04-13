@@ -1,8 +1,8 @@
 const stats = [
-  { value: '20년+', label: '울산 옥동 역사' },
-  { value: '수학·과학', label: '전문 학원' },
-  { value: '전 학년', label: '중·고등 커버' },
-  { value: '주말 테스트', label: '체계적 복습 시스템' },
+  { value: "20년+", label: "울산 옥동 역사" },
+  { value: "수학", label: "전문 학원" },
+  { value: "전 학년", label: "중·고등 커버" },
+  { value: "주말 테스트", label: "체계적 복습 시스템" },
 ];
 
 export default function StatsBar() {

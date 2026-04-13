@@ -13,7 +13,8 @@ export default function Address() {
         aria-label="네이버 지도에서 학원 위치 보기"
       >
         <KakaoMap />
-        <span className="absolute inset-0 flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+        <span className="sr-only">클릭 시 네이버지도로 이동</span>
+        <span className="absolute inset-0 flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" aria-hidden="true">
           <span className="bg-slate-900/80 text-amber-300 text-sm px-4 py-1.5 rounded-full font-medium border border-amber-500/40">
             클릭 시 네이버지도로 이동
           </span>
