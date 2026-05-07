@@ -28,17 +28,90 @@ npm run lint     # ESLint
 ```
 src/
 ├── app/
-│   ├── (admin)/          # 관리자 라우트 그룹 (admin, feedback)
-│   ├── (users)/          # 사용자 라우트 그룹 (메인, contact, suggest)
-│   └── api/auth/         # NextAuth 라우트
-├── feature/              # 기능별 모듈
-│   ├── admin/            # 관리자 로그인/로그아웃
-│   ├── contact/          # 주소/연락처 카드
-│   ├── feedback/         # 피드백 목록 및 답변 (관리자)
-│   ├── introduce/        # 학원 소개 섹션
-│   └── suggest/          # 건의사항 폼
-├── firestore/            # Firestore 연동 (auth, suggest 헬퍼)
-└── shared/               # 공통 컴포넌트 (Header, NavLinks 등)
+│   ├── (admin)/                        # 관리자 라우트 그룹 — AdminHeader 레이아웃, auth 검증
+│   │   ├── layout.tsx                  # checkUser()로 인가 확인, 미인가 시 안내 메시지
+│   │   ├── admin/
+│   │   │   ├── page.tsx                # /admin — Google OAuth 로그인 페이지
+│   │   │   └── classes/
+│   │   │       ├── page.tsx            # /admin/classes — 반 생성 + 반 목록 + QR코드
+│   │   │       └── [classId]/page.tsx  # /admin/classes/[classId] — 학생 시간표 조회
+│   │   └── feedback/
+│   │       ├── page.tsx                # /feedback — 건의 목록 (필터/페이지네이션)
+│   │       └── [id]/page.tsx           # /feedback/[id] — 건의 상세 + 답변 상태 변경
+│   ├── (users)/                        # 사용자 라우트 그룹 — Header + FloatingBtn 레이아웃
+│   │   ├── page.tsx                    # / — 메인 랜딩 (Hero, StatsBar, Introduce, System)
+│   │   ├── contact/page.tsx            # /contact — 지도 + 주소 + 전화번호
+│   │   ├── suggest/page.tsx            # /suggest — 익명 건의함 폼
+│   │   └── schedule/
+│   │       └── [classId]/page.tsx      # /schedule/[classId] — 학생 시간표 입력 (비로그인)
+│   └── api/auth/[...nextauth]/         # NextAuth 핸들러
+├── feature/
+│   ├── admin/                          # AdminHeader, SignIn, SignOut
+│   ├── contact/                        # KakaoMap, Address, CardList
+│   ├── feedback/                       # Feedback, FeedbackTable, FeedbackFilter, ReplyFeedback
+│   ├── introduce/                      # Hero, StatsBar, Introduce, System
+│   ├── schedule/
+│   │   ├── const/types.ts              # ClassRoom, StudentSchedule, DayOfWeek 타입
+│   │   ├── admin/
+│   │   │   ├── CreateClassForm.tsx     # 반 생성 폼 (학년, 이름, 유효기간)
+│   │   │   ├── ClassList.tsx           # 반 목록 (상태 배지, QR, 조회 링크)
+│   │   │   ├── QRCodeDisplay.tsx       # QR 코드 모달 (qrcode.react)
+│   │   │   └── StudentScheduleView.tsx # 학생 시간표 테이블 + 상세 모달
+│   │   └── student/
+│   │       └── ScheduleForm.tsx        # 학생 시간표 입력 폼 (요일 토글, 다중 수업)
+│   └── suggest/                        # SuggestForm, helper/register
+├── firestore/
+│   ├── firestore.ts                    # Firebase 초기화 (auth, store)
+│   ├── const/collection.ts             # 컬렉션명 상수
+│   └── helper/
+│       ├── auth.ts                     # checkUser(email)
+│       ├── suggest.ts                  # 건의함 CRUD
+│       └── schedule.ts                 # 반/학생시간표 CRUD
+└── shared/
+    ├── components/                     # Header, NavLinks, MobileSidebar, FloatingBtn
+    └── const/index.ts                  # GRADE_OPTION, NAVIGATION_LIST, PHONE_DATA 등
+```
+
+## 라우트 & 인증
+
+| URL | 접근 | 설명 |
+|-----|------|------|
+| `/` | 공개 | 메인 랜딩 |
+| `/contact` | 공개 | 오시는 길 |
+| `/suggest` | 공개 | 익명 건의함 |
+| `/schedule/[classId]` | 공개 | 학생 시간표 입력 (유효기간 서버 검증) |
+| `/admin` | 공개 | 관리자 로그인 |
+| `/feedback` | **인증 필요** | 건의 관리 (middleware 보호) |
+| `/admin/classes` | **인증 필요** | 반 관리 + QR (middleware 보호) |
+| `/admin/classes/[classId]` | **인증 필요** | 학생 시간표 조회 |
+
+- 인증: NextAuth v5 Google OAuth, `src/auth.ts`의 `protectedPath` 배열로 관리
+- Firestore 인가: `USERS` 컬렉션에 이메일 존재 여부로 관리자 판별 (`checkUser`)
+
+## Firestore 스키마
+
+### USERS
+관리자 이메일 목록 (문서 ID = 이메일)
+
+### SUGGESET (오타 유지 — 기존 데이터)
+```
+{ grade, category, title, content, date: Timestamp, reply: ReplyState, lastChecked: Timestamp|null }
+```
+
+### CLASSES
+```
+{ grade: string, name: string, startDate: Timestamp, endDate: Timestamp, createdAt: Timestamp }
+```
+
+### STUDENT_SCHEDULES
+```
+{
+  classId: string,
+  studentName: string,
+  travelMinutes: number,
+  daySchedules: { day: DayOfWeek, entries: { academyName, startTime, endTime }[] }[],
+  submittedAt: Timestamp
+}
 ```
 
 ## 개발 규칙
