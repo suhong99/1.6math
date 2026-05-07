@@ -10,7 +10,7 @@ export const authConfig = {
   callbacks: {
     async authorized({ auth, request: { nextUrl } }) {
       const isLogIn = !!auth?.user;
-      const protectedPath = ['/feedback'];
+      const protectedPath = ['/feedback', '/admin/classes'];
       const isProtected = protectedPath.some((path) =>
         nextUrl.pathname.startsWith(path)
       );
